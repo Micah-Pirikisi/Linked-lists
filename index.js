@@ -10,6 +10,21 @@ class LinkedList {
     this.head = null;
   }
 
+  head() {
+    return this.head; 
+  }
+
+  tail() {
+    if(!this.head) return null; 
+
+    let current = this.head; 
+    while(current.next) {
+        current = current.next; 
+    }
+
+    return current; 
+  }
+
   prepend(value) {
     const newNode = new Node(value);
     newNode.next = this.head;
