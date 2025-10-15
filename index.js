@@ -11,18 +11,30 @@ class LinkedList {
   }
 
   head() {
-    return this.head; 
+    return this.head;
   }
 
   tail() {
-    if(!this.head) return null; 
+    if (!this.head) return null;
 
-    let current = this.head; 
-    while(current.next) {
-        current = current.next; 
+    let current = this.head;
+    while (current.next) {
+      current = current.next;
     }
 
-    return current; 
+    return current;
+  }
+
+  at(index) {
+    if (index < 0 || index > this.size()) return null;
+
+    let current = this.head;
+    let i = 0;
+    while (i < index) {
+      current = current.next;
+      i++;
+    }
+    return current;
   }
 
   prepend(value) {
