@@ -10,7 +10,7 @@ class LinkedList {
     this.head = null;
   }
 
-  head() {
+  getHead() {
     return this.head;
   }
 
@@ -134,6 +134,34 @@ class LinkedList {
     }
   }
 
+  contains(value) {
+    let current = this.head;
+
+    while (current) {
+      if (current.value === value) {
+        return true;
+      }
+      current = current.next;
+    }
+
+    return false;
+  }
+
+  find(value) {
+    let current = this.head;
+    let index = 0;
+
+    while (current) {
+      if (current.value === value) {
+        return index;
+      }
+      current = current.next;
+      index++;
+    }
+
+    return null;
+  }
+
   print() {
     let string = [];
     let current = this.head;
@@ -141,7 +169,7 @@ class LinkedList {
       string.push(current.value);
       current = current.next;
     }
-    return console.log(string.join(" -> "));
+    console.log(string.join(" -> "));
   }
 }
 
