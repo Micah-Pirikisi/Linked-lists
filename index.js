@@ -64,4 +64,52 @@ class LinkedList {
         newNode.next = current.next; 
         current.next = newNode; 
     }
+
+    removeTop() {
+        if(!this.head) {
+            return; 
+        }
+
+        this.head = this.head.next; 
+    }
+
+    removeLast() {
+        if(!this.head) {
+            return; 
+        }
+
+        let current = this.head; 
+        while(current.next.next) {
+            current = current.next; 
+        }
+
+        current.next = null;
+    }
+
+    pop(index) {
+        if(index < 0 || index > this.size()) {
+            console.error('Invalid index'); 
+            return; 
+        }
+
+        if(index === 0) {
+            this.head = this.head.next; 
+            return; 
+        }
+
+        let current = this.head; 
+        for(let i = 0; i < index -1; i++) {
+            current = current.next; 
+        }
+
+        if(current.next) {
+            current.next = current.next.next; 
+        }
+    }
 }
+
+const linkedList = new LinkedList(); 
+
+linkedList.prepend(5); 
+linkedList.prepend(3); 
+linkedList.prepend(8); 
